@@ -1,0 +1,33 @@
+.courses-div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h1{
+        text-align: center;
+        text-decoration: underline;
+    }
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 30px;
+        padding: 30px;
+
+        .course-tile{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            gap: 10px;
+            background: var(--cat-bg);
+            box-shadow: 1px 1px 1px var(--cat-bs1), -4px -4px 15px var(--cat-bs2);
+
+            span{
+                text-align: center;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    }
+}

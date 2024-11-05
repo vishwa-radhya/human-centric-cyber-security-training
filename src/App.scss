@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Chakra Petch", sans-serif;
+  }
+
+  .light-theme{
+    --bg-color:#fff;
+    --text-color:#000;
+    --cat-bg:#e6e6e6;
+    --cat-bs1:#e5e5e5;
+    --cat-bs2:#c8c8c8;
+  }
+
+  .dark-theme{
+    --bg-color:#000;
+    --text-color:#fff;
+    --cat-bg:#191919;
+    --cat-bs1:#1a1a1a;
+    --cat-bs2:#373737;
+  }
+
+  body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 1s ease, color 1s ease;
+  }
