@@ -34,5 +34,17 @@
             width: 90%;
             font-size: 1rem;
         }
+        .info{
+            display: flex;
+            padding: 5px;
+            align-items: center;
+            .star{
+                display: flex;
+                font-size: 1.2rem;
+                margin-left: auto;
+                cursor: pointer;
+            }
+        }
+        
     }
 }

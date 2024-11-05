@@ -17,7 +17,7 @@ const Catalog=()=>{
     const navigateRouter = useNavigate();
 
     return(
-        <div className="catalog-div ">
+        <div className="catalog-div animate__animated animate__fadeInDown">
             <h1>Explore Range Of Cyber Security Course Catalog</h1>
             <div className='catalogs'>
                 {catalogStrings.map((str,index)=>{
