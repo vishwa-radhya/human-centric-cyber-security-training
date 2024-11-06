@@ -15,9 +15,12 @@
   .light-theme{
     --bg-color:#fff;
     --text-color:#000;
-    --cat-bg:#e6e6e6;
+    --cat-bg:#efefef;
     --cat-bs1:#e5e5e5;
-    --cat-bs2:#c8c8c8;
+    --cat-bs2:#dedcdc;
+    --dd-bg:whitesmoke;
+    --dd-bgh:rgb(202, 202, 202);
+    --dd-bs:1px 1px 6px rgb(187, 186, 186);
   }
 
   .dark-theme{
@@ -26,6 +29,9 @@
     --cat-bg:#191919;
     --cat-bs1:#1a1a1a;
     --cat-bs2:#373737;
+    --dd-bg:rgb(58, 58, 58);
+    --dd-bgh:rgb(102, 102, 102);
+    --dd-bs:1px 1px 6px rgb(105, 103, 103);
   }
 
   body{
