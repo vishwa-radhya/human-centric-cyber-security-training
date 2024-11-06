@@ -1,5 +1,6 @@
 import './favorites.styles.scss';
 import noFavoriteImg from '../../assets/void.svg';
+import 'animate.css';
 
 const Favorites=()=>{
     return(

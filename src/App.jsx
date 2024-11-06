@@ -6,6 +6,7 @@ import Catalog from './routes/catalog/catalog.component'
 import Favorites from './routes/favorites/favorites.component'
 import Courses from './routes/courses/courses.component'
 import Course from './routes/course/course.component'
+import '@fontsource/chakra-petch'
 
 function App() {
 

@@ -1,8 +1,15 @@
+
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Chakra Petch", sans-serif;
+  }
+
+  html,body{
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .light-theme{

@@ -26,18 +26,31 @@
     .yt-video{
         margin-top: 20px;
         height: 100%;
-        
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        // gap: 20px;
+        .iframe-container{
+            width: 100%;
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              }
+        }
         p{
             width: 90%;
             font-size: 1rem;
         }
         .info{
             display: flex;
-            padding: 5px;
+            padding: 9px;
             align-items: center;
+
             .star{
                 display: flex;
                 font-size: 1.2rem;

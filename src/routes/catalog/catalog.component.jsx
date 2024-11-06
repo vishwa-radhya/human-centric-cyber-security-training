@@ -9,6 +9,7 @@ import c5 from '../../assets/network sec (1).jpg';
 import c6 from '../../assets/social-eng (1) (1).jpg';
 import { useNavigate } from 'react-router-dom';
 import { GrCatalog } from "react-icons/gr";
+import 'animate.css';
 
 const Catalog=()=>{
 

@@ -17,7 +17,7 @@
      }
      span{
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1rem;
      }
      button{
         padding: 12px;
@@ -31,6 +31,9 @@
         background-color: var(--bg-color);
         color:var(--text-color);
         cursor: pointer;
+        &:hover{
+         filter: invert(100%);
+        }
      }
     }
     & > *:nth-child(2){
@@ -40,4 +43,99 @@
      justify-content: center;
      padding: 10px;
     }
+}
+
+@media screen and (max-width:720px){
+   .home-div{
+      & > *:nth-child(1){
+         gap: 30px;
+         p{
+            font-size: 2rem;
+         }
+         span{
+            font-size: 0.8rem;
+         }
+         button{
+            scale: 0.8;
+         }
+      }
+      & > *:nth-child(2){
+         img{
+            scale: 1.3;
+         }
+      }
+   }
+}
+@media screen and (max-width:578px){
+   .home-div{
+      & > *:nth-child(1){
+         gap: 30px;
+         p{
+            font-size: 1.5rem;
+         }
+         span{
+            font-size: 0.65rem;
+         }
+         button{
+            scale: 0.65;
+         }
+      }
+      & > *:nth-child(2){
+         img{
+            scale: 1.3;
+         }
+      }
+   }
+}
+@media screen and (max-width:495px){
+   .home-div{
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+      & > *:nth-child(1){
+         gap: 20px;
+         width: 100%;
+         p{
+            font-size: 2rem;
+         }
+         span{
+            font-size: 0.7rem;
+         }
+         button{
+            scale: 0.7;
+         }
+      }
+      & > *:nth-child(2){
+         width: 100%;
+         img{
+            scale: 0.8;
+         }
+      }
+   }
+}
+@media screen and (max-width:390px){
+   .home-div{
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      & > *:nth-child(1){
+         gap: 15px;
+         width: 100%;
+         p{
+            font-size: 1.8rem;
+         }
+         span{
+            font-size: 0.6rem;
+         }
+         button{
+            scale: 0.7;
+         }
+      }
+      & > *:nth-child(2){
+         width: 100%;
+         img{
+            scale: 0.9;
+         }
+      }
+   }
 }

@@ -13,6 +13,43 @@
         flex-direction: column;
         justify-content: center;
         gap: 30px;
-        
+        // border: 1px solid;
+    }
+}
+@media screen and (max-width:650px){
+    .favorites-div{
+        h1{
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        .no-fav{
+            width: 90%;
+        }
+    }
+}
+@media screen and (max-width:550px){
+    .favorites-div{
+        h1{
+            font-size: 1.9rem;
+            margin-top: 10%;
+        }
+        .no-fav{
+            width: 90%;
+        }
+    }
+}
+@media screen and (max-width:400px){
+    .favorites-div{
+        h1{
+            font-size: 1.7rem;
+            margin-top: 15%;
+        }
+        .no-fav{
+            width: 90%;
+            img{
+                margin-top: 20px;
+                scale: 1.2;
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@ import './home.styles.scss';
 import homeImg from '../../assets/cyber-attack (1).png';
 import { MdTravelExplore } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import 'animate.css';
 
 const Home=()=>{
 
@@ -12,7 +13,7 @@ const Home=()=>{
             <div>
                 <p>Human Centric Cyber Security Training Program</p>
                 <span>
-                    content content content content content content content content content content content content content content content content content content content content content content 
+                Our Human-Centric Cybersecurity Training Program focuses on building knowledge and resilience against cyber threats, designed with people at its core. Learn essential skills to protect your digital presence and safeguard your organization from emerging cyber risks. 
                 </span>
                 <button onClick={()=>navigateRouter('/catalog')}> <MdTravelExplore/> Explore Catalog</button>
             </div>
