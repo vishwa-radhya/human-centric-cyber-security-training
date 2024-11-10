@@ -15,7 +15,7 @@ const Home=()=>{
                 <span>
                 Our Human-Centric Cybersecurity Training Program focuses on building knowledge and resilience against cyber threats, designed with people at its core. Learn essential skills to protect your digital presence and safeguard your organization from emerging cyber risks. 
                 </span>
-                <button onClick={()=>navigateRouter('/catalog')}> <MdTravelExplore/> Explore Catalog</button>
+                <button onClick={()=>navigateRouter('/catalog')} className='c-btn'> <MdTravelExplore/> Explore Catalog</button>
             </div>
             <div>
                 <img src={homeImg} style={{width:'55%'}} />

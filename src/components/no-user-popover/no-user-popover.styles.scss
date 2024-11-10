@@ -1,0 +1,16 @@
+.no-user-popover-div{
+    // border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: var(--no-user-ppbg);
+    span{
+        font-size: 1.3rem;
+    }
+    button{
+        border: 0;
+    }
+}

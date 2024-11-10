@@ -45,7 +45,7 @@ const Navbar=()=>{
             <ul>
                 <li onClick={()=>navigateRouter('catalog')} className="nav-li">Catalog</li>
                 <li onClick={()=>navigateRouter('favorites')} className="nav-li">Favorites</li>
-                <li className="user nav-li"><FaCircleUser/></li>
+                <li className="user nav-li" onClick={()=>navigateRouter('user')}><FaCircleUser/></li>
                 <li className="options" onClick={()=>setIsDropdownOpen(true)} ref={ellipsisRef}><FaEllipsisVertical/></li>
                 <li className="theme" onClick={()=>setTheme(prev=>!prev)}>{theme ? <FaSun/> : <FaMoon/>} </li>
             </ul>
@@ -59,7 +59,7 @@ const Navbar=()=>{
                      setIsDropdownOpen(false)}
                     }><FaRegStar/>Favorites</span>
                 <span onClick={()=>{
-                    navigateRouter('catalog')
+                    navigateRouter('user')
                     setIsDropdownOpen(false)
                     }}><FaRegCircleUser/>User</span>
             </div>}

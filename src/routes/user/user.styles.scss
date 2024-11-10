@@ -1,0 +1,36 @@
+.user-div{
+    height: 90vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    button{
+        font-size: 1.4rem;
+    }
+    h1{
+        text-align: center;
+        text-decoration: underline;
+    }
+    .user-div-space{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 20px;
+        font-size: 1.4rem;
+        img{
+            border-radius: 50%;
+        }
+        p{
+            text-align: center;
+        }
+    }
+    .no-user-div-space{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+        gap: 30px;
+    }
+}

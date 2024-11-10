@@ -5,17 +5,25 @@ import { FaHourglassEnd } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { FaRegStar } from "react-icons/fa";
 import 'animate.css';
+import SearchBar from '../../components/search-bar/search-bar.component';
+import { useState } from 'react';
 
 const Courses=()=>{
 
     const {catalogName} =useParams();
     const navigateRouter = useNavigate();
+    const [filteredData,setFilteredData]=useState(iFrameData);
+
+    const handleFilterData=(value)=>{
+        setFilteredData(iFrameData.filter(obj=>obj.videoName.toLowerCase().includes(value.toLowerCase())))
+    }
 
     return(
         <div className="courses-div animate__animated animate__fadeInDown">
             <h1>{`${catalogName} Courses`}</h1>
+            <SearchBar handleFilterData={handleFilterData} />
             <div className='container'>
-                {iFrameData.filter(obj=>obj.videoCategory===`${catalogName.toLocaleLowerCase()}`).map((ytObject)=>{
+                {filteredData.filter(obj=>obj.videoCategory===`${catalogName.toLocaleLowerCase()}`).map((ytObject)=>{
                     return <div key={ytObject.id} className='course-tile' onClick={()=>navigateRouter(`/course/${ytObject.videoSrc.slice(30)}`)}>
                         <img src={`https://img.youtube.com/vi/${ytObject.videoCode}/hqdefault.jpg`}  />
                         <span>{ytObject.videoName}</span>
