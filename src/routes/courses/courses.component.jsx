@@ -7,11 +7,15 @@ import { FaRegStar } from "react-icons/fa";
 import 'animate.css';
 import SearchBar from '../../components/search-bar/search-bar.component';
 import { useState } from 'react';
+import { FaStar } from 'react-icons/fa6';
+import { useContext } from 'react';
+import { FavContext } from '../../contexts/fav-context.context';
 
 const Courses=()=>{
 
     const {catalogName} =useParams();
     const navigateRouter = useNavigate();
+    const {userFavData}=useContext(FavContext);
     const [filteredData,setFilteredData]=useState(iFrameData);
 
     const handleFilterData=(value)=>{
@@ -28,7 +32,7 @@ const Courses=()=>{
                         <img src={`https://img.youtube.com/vi/${ytObject.videoCode}/hqdefault.jpg`}  />
                         <span>{ytObject.videoName}</span>
                         <span>Duration : {ytObject.videoLength} <FaHourglassEnd/> </span>
-                        <div className='star-div'><FaRegStar/></div>
+                        <div className='star-div'>{Object.values(userFavData).includes(ytObject.videoCode) ? <FaStar/> : <FaRegStar/> }</div>
                     </div>
                 })}
             </div>

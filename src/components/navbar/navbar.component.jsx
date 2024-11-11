@@ -10,6 +10,7 @@ import { FaEllipsisVertical } from "react-icons/fa6";
 import { GrCatalogOption } from "react-icons/gr";
 import { FaRegStar } from "react-icons/fa";
 import { FaRegCircleUser } from "react-icons/fa6";
+import { MdOutlineQuiz } from "react-icons/md";
 
 const Navbar=()=>{
 
@@ -45,6 +46,7 @@ const Navbar=()=>{
             <ul>
                 <li onClick={()=>navigateRouter('catalog')} className="nav-li">Catalog</li>
                 <li onClick={()=>navigateRouter('favorites')} className="nav-li">Favorites</li>
+                <li onClick={()=>navigateRouter('quiz')} className="nav-li">Quiz</li>
                 <li className="user nav-li" onClick={()=>navigateRouter('user')}><FaCircleUser/></li>
                 <li className="options" onClick={()=>setIsDropdownOpen(true)} ref={ellipsisRef}><FaEllipsisVertical/></li>
                 <li className="theme" onClick={()=>setTheme(prev=>!prev)}>{theme ? <FaSun/> : <FaMoon/>} </li>
@@ -58,6 +60,10 @@ const Navbar=()=>{
                     ()=>{navigateRouter('favorites')
                      setIsDropdownOpen(false)}
                     }><FaRegStar/>Favorites</span>
+                <span onClick={
+                    ()=>{navigateRouter('quiz')
+                     setIsDropdownOpen(false)}
+                    }><MdOutlineQuiz/>Quiz</span>
                 <span onClick={()=>{
                     navigateRouter('user')
                     setIsDropdownOpen(false)

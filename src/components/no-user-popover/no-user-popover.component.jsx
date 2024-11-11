@@ -27,7 +27,10 @@ const NoUserPopover = ({starDivRef,isNoUserPopoverShown,handleSetIsNoUserPopOver
         <div className="no-user-popover-div animate__animated animate__fadeInDown" ref={NoUserPopoverDivRef} >
             <span>Sign In To Keep Favorites </span>
             <SvgLoader imgSrc={NoAuthImg} imgWidth={250} />
-            <button className='c-btn' onClick={()=>navigateRouter('/user')} >SignIn Now</button>
+            <button className='c-btn' onClick={()=>{
+                handleSetIsNoUserPopOverShown(false)
+                navigateRouter('/user')
+            }} >SignIn Now</button>
         </div>
         </div>
      );

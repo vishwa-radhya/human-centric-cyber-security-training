@@ -6,7 +6,7 @@ import { useContext,useState } from 'react';
 import { FavContext } from '../../contexts/fav-context.context';
 import SearchBar from '../../components/search-bar/search-bar.component';
 import { useNavigate } from 'react-router-dom';
-import { FaHourglassEnd,FaRegStar } from 'react-icons/fa6';
+import { FaHourglassEnd,FaRegStar,FaStar } from 'react-icons/fa6';
 import { AuthContext } from '../../contexts/auth-context.context';
 
 const Favorites=()=>{
@@ -23,7 +23,7 @@ const Favorites=()=>{
     return(
         <div className="favorites-div animate__animated animate__fadeInDown">
             <h1>Favorite Courses</h1>
-            {Object.keys(userFavData).length === 0 && !user ? <div className='no-fav'>
+            {Object.keys(userFavData).length === 0 || !user ? <div className='no-fav'>
                 <img src={noFavoriteImg} style={{width:'40%'}} />
             </div> : <div className='has-fav'>
                 <SearchBar handleFilterData={handleFilterData} />
@@ -33,7 +33,7 @@ const Favorites=()=>{
                         <img src={`https://img.youtube.com/vi/${ytObject.videoCode}/hqdefault.jpg`}  />
                         <span>{ytObject.videoName}</span>
                         <span>Duration : {ytObject.videoLength} <FaHourglassEnd/> </span>
-                        <div className='star-div'><FaRegStar/></div>
+                        <div className='star-div'>{Object.values(userFavData).includes(ytObject.videoCode) ? <FaStar/> : <FaRegStar/> }</div>
                     </div>
                 })}
             </div>

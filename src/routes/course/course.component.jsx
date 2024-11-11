@@ -52,7 +52,7 @@ const Course =()=>{
                 console.error('error pushing data to user favorites',e);
             }
         }else{
-            const dataIdInDb =  Object.entries(userFavData).find(([key,value])=>value === courseId.slice(0,11))?.[0];
+            const dataIdInDb =  Object.entries(userFavData).find(([,value])=>value === courseId.slice(0,11))?.[0];
             try{
                 const dataRemoveRef = ref(firebaseRealtimeDb,`${databaseReference}/${dataIdInDb}`)
                 remove(dataRemoveRef)

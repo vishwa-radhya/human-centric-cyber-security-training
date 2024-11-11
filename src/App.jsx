@@ -8,6 +8,8 @@ import Courses from './routes/courses/courses.component'
 import Course from './routes/course/course.component'
 import '@fontsource/chakra-petch'
 import User from './routes/user/user.component'
+import Quiz from './routes/quiz/quiz.component'
+import CatalogQuiz from './routes/catalog-quiz/catalog-quiz.component'
 import DataLoader from './components/data-loader/data-loader.component'
 import { useContext,useState,useEffect } from 'react'
 import { AuthContext } from './contexts/auth-context.context'
@@ -46,6 +48,8 @@ function App() {
           <Route path='catalog/:catalogName' element={<Courses/>}  />
           <Route path='course/:courseId' element={<Course/>} />
           <Route path='user' element={<User/>} />
+          <Route path='quiz' element={<Quiz/>} />
+          <Route path='qz/:quizCatalog' element={<CatalogQuiz/>} />
         </Route>
       </Routes>
       {isLoading &&  <DataLoader />}
