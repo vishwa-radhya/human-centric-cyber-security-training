@@ -20,7 +20,7 @@ const Quiz = () => {
             <div className='container'>
                 {imgArray.map((image,idx)=>{
                     return <div key={`qz-${idx}`} className='tile' onClick={()=>navigateRouter(`/qz/${quizcatalogs[idx]}`)} >
-                        <SvgLoader imgSrc={image} imgWidth={"80%"} />
+                        <SvgLoader imgSrc={image} imgWidth={250} />
                         <span>{quizcatalogs[idx]}</span>
                     </div>
                 })}

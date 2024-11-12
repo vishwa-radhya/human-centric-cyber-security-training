@@ -1,6 +1,5 @@
 import './course.styles.scss';
 import { useParams } from 'react-router-dom';
-import { iFrameData } from '../../data';
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { FaRegStar } from "react-icons/fa";
@@ -13,16 +12,19 @@ import { AuthContext } from '../../contexts/auth-context.context';
 import { push,ref,remove } from 'firebase/database';
 import { firebaseRealtimeDb } from '../../utils/firebase';
 import { FavContext } from '../../contexts/fav-context.context';
+import { UserVideosContext } from '../../contexts/user-videos.context';
+import { iFrameData } from '../../data';
 
 const Course =()=>{
     
     const {courseId}=useParams();
     const {userFavData}=useContext(FavContext);
-    const courseNameObject = iFrameData.find(obj=>obj.videoSrc.includes(courseId));
     const navigateRouter = useNavigate();
     const [starCLicked,setStarClicked]=useState(false);
     const {user}=useContext(AuthContext);
+    const {newIframeData}=useContext(UserVideosContext);
     const [isNoUserPopoverShown,setIsNoUserPopoverShown]=useState(false);
+    const courseNameObject = iFrameData.concat(newIframeData).find(obj=>obj.videoSrc.includes(courseId));
     const starDivRef = useRef(null);
     
     useEffect(()=>{

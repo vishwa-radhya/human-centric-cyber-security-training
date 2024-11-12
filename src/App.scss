@@ -7,7 +7,7 @@
   }
 
   html,body{
-    user-select: none;
+    // user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -21,6 +21,7 @@
     --dd-bgh:rgb(202, 202, 202);
     --dd-bs:1px 1px 6px rgb(187, 186, 186);
     --no-user-ppbg:rgb(223, 223, 223);
+    --opt-hover:rgb(188, 188, 188);
   }
 
   .dark-theme{
@@ -33,6 +34,7 @@
     --dd-bgh:rgb(102, 102, 102);
     --dd-bs:1px 1px 6px rgb(105, 103, 103);
     --no-user-ppbg:rgb(32, 32, 32);
+    --opt-hover:rgb(56, 56, 56);
   }
 
   body{
