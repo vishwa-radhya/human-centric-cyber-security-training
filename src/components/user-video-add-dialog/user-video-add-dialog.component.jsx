@@ -27,7 +27,6 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
 
         if(user && trimmedCourseName && trimmedEmbedLink.startsWith('https://www.youtube.com/embed/') && trimmedCourseCategory && trimmedCourseDuration){
             const dbReference = ref(firebaseRealtimeDb,`userVideos/${user.uid}`)
-            const dbReferenceForNewPath = ref(firebaseRealtimeDb,`videoCategoryUsers/${courseCatagory}`)
             try{
                 push(dbReference,{
                     courseName:trimmedCourseName,
@@ -37,14 +36,6 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
                 })
             }catch(e){
                 console.error('error pushing user videos to userVideos',e)
-            }
-            try{
-                push(dbReferenceForNewPath,{
-                    authorName:user.displayName,
-                    authorPhotoUrl:user.photoURL,
-                })
-            }catch(e){
-                console.error('error pushing user details to video added users',e)
             }
             setIsUserVideoAddDialogOpen(false)
         }
