@@ -10,12 +10,14 @@ import { useState } from 'react';
 import { FaStar } from 'react-icons/fa6';
 import { useContext } from 'react';
 import { FavContext } from '../../contexts/fav-context.context';
+import { HelperContext } from '../../contexts/helper-context.context';
 
 const Courses=()=>{
 
     const {catalogName} =useParams();
     const navigateRouter = useNavigate();
     const {userFavData}=useContext(FavContext);
+    const {handleSetCurrentCourseDuration,handleSetCurrentCourseName}=useContext(HelperContext);
     const [filteredData,setFilteredData]=useState(iFrameData);
 
     const handleFilterData=(value)=>{
@@ -28,7 +30,13 @@ const Courses=()=>{
             <SearchBar handleFilterData={handleFilterData} />
             <div className='container'>
                 {filteredData.filter(obj=>obj.videoCategory===`${catalogName.toLocaleLowerCase()}`).map((ytObject)=>{
-                    return <div key={ytObject.id} className='course-tile' onClick={()=>navigateRouter(`/course/${ytObject.videoSrc.slice(30)}`)}>
+                    return <div key={ytObject.id} className='course-tile' onClick={
+                        ()=>{
+                            handleSetCurrentCourseDuration(ytObject.videoLength)
+                            handleSetCurrentCourseName(ytObject.videoName)
+                            navigateRouter(`/course/${ytObject.videoSrc.slice(30)}`)
+                            }
+                        }>
                         <img src={`https://img.youtube.com/vi/${ytObject.videoCode}/hqdefault.jpg`}  />
                         <span>{ytObject.videoName}</span>
                         <span>Duration : {ytObject.videoLength} <FaHourglassEnd/> </span>

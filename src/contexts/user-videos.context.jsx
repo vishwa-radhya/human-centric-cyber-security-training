@@ -9,7 +9,8 @@ export const UserVideosContext = createContext();
 export const UserVideosProvider =({children})=>{
 
     const [userVideos,setUserVideos]=useState({});
-    const [newIframeData,setNewIframeData]=useState([]);
+    // const [newIframeData,setNewIframeData]=useState([]);
+    const [communityUsers,setCommunityUsers]=useState({});
 
     useEffect(()=>{
         let unsubscribeFromDb = null;
@@ -19,14 +20,14 @@ export const UserVideosProvider =({children})=>{
                 // console.log('fetching user videos')
                 if(snapshot.exists()){
                     setUserVideos(snapshot.val())
-                    setNewIframeData(Object.entries(snapshot.val()).map(([key,{courseName,courseDuration,courseCatagory,embedLink}])=>({
-                        id:key,
-                        videoSrc:`https://www.youtube.com/embed/${embedLink}`,
-                        videoLength:courseDuration,
-                        videoCategory:courseCatagory,
-                        videoName:courseName,
-                        videoCode:embedLink.slice(0,11)
-                    })))
+                    // setNewIframeData(Object.entries(snapshot.val()).map(([key,{courseName,courseDuration,courseCatagory,embedLink}])=>({
+                    //     id:key,
+                    //     videoSrc:`https://www.youtube.com/embed/${embedLink}`,
+                    //     videoLength:courseDuration,
+                    //     videoCategory:courseCatagory,
+                    //     videoName:courseName,
+                    //     videoCode:embedLink.slice(0,11)
+                    // })))
                 }else{
                     setUserVideos({});
                 }
@@ -43,9 +44,26 @@ export const UserVideosProvider =({children})=>{
         }
     },[])
 
+    useEffect(()=>{
+        let unsubFromDb = null;
+        const fetchCommunityUsers = async()=>{
+            const communityUsersInDbRef = ref(firebaseRealtimeDb,`communityUsers`);
+            unsubFromDb = onValue(communityUsersInDbRef,(snapshot)=>{
+                if(snapshot.exists()){
+                    setCommunityUsers(snapshot.val())
+                }else{
+                    setCommunityUsers({});
+                }
+            })
+        }
+        fetchCommunityUsers();
+        return ()=>{
+            if(unsubFromDb) unsubFromDb();
+        }
+    },[])
 
     return(
-        <UserVideosContext.Provider value={{userVideos,newIframeData,setNewIframeData}}>
+        <UserVideosContext.Provider value={{userVideos,communityUsers}}>
             {children}
         </UserVideosContext.Provider>
     )

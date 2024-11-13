@@ -6,7 +6,8 @@ import { AuthContext } from '../../contexts/auth-context.context';
 import PropTypes from 'prop-types';
 import { FaXmark } from 'react-icons/fa6';
 import { firebaseRealtimeDb } from '../../utils/firebase';
-import { ref,push } from 'firebase/database';
+import { ref,push,set } from 'firebase/database';
+import { UserVideosContext } from '../../contexts/user-videos.context';
 
 const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
 
@@ -14,7 +15,9 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
     const [embedLink,setEmbedLink]=useState('');
     const [courseDuration,setCourseDuration]=useState('');
     const [courseCatagory,setCourseCatagory]=useState('');
-    const {user} = useContext(AuthContext);      
+    const {user} = useContext(AuthContext);
+    const {communityUsers}=useContext(UserVideosContext);
+    // console.log(communityUsers)     
 
     const guideArray = ['Choose Your Youtube Video','Click on share','Click on embed','copy source(src) link from iframe code'];
     const courseCatalogs=['Cryptography','Cloud Security','Application Security','Information Security','Network Security','Social Engineering','Others'];
@@ -27,7 +30,7 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
 
         if(user && trimmedCourseName && trimmedEmbedLink.startsWith('https://www.youtube.com/embed/') && trimmedCourseCategory && trimmedCourseDuration){
             const dbReference = ref(firebaseRealtimeDb,`userVideos/${user.uid}`)
-            const dbReferenceForNewPath = ref(firebaseRealtimeDb,`videoCategoryUsers/${courseCatagory}`)
+            const dbReferenceForNewPath = ref(firebaseRealtimeDb,`communityUsers/${user.uid}`)
             try{
                 push(dbReference,{
                     courseName:trimmedCourseName,
@@ -38,13 +41,17 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
             }catch(e){
                 console.error('error pushing user videos to userVideos',e)
             }
-            try{
-                push(dbReferenceForNewPath,{
-                    authorName:user.displayName,
-                    authorPhotoUrl:user.photoURL,
-                })
-            }catch(e){
-                console.error('error pushing user details to video added users',e)
+
+            if(!Object.keys(communityUsers).includes(user.uid)){
+                console.log('setting com')
+                try{
+                    set(dbReferenceForNewPath,{
+                        authorName:user.displayName,
+                        authorPhotoUrl:user.photoURL,
+                    })
+                }catch(e){
+                    console.error('error pushing user details to video added users',e)
+                }
             }
             setIsUserVideoAddDialogOpen(false)
         }

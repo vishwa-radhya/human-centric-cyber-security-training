@@ -46,7 +46,7 @@ function App() {
           <Route path='catalog' element={<Catalog/>} />
           <Route path='favorites' element={<Favorites/>} />
           <Route path='catalog/:catalogName' element={<Courses/>}  />
-          <Route path='course/:courseId' element={<Course/>} />
+          <Route path='course/:cId' element={<Course/>} />
           <Route path='user' element={<User/>} />
           <Route path='quiz' element={<Quiz/>} />
           <Route path='qz/:quizCatalog' element={<CatalogQuiz/>} />

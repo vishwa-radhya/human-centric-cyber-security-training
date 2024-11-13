@@ -15,11 +15,13 @@ import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { ref,remove } from 'firebase/database';
 import { firebaseRealtimeDb } from '../../utils/firebase';
+import { HelperContext } from '../../contexts/helper-context.context';
 
 const User = () => {
 
     const {user} = useContext(AuthContext);
     const {userVideos}=useContext(UserVideosContext);
+    const {handleSetCurrentCourseDuration,handleSetCurrentCourseName}=useContext(HelperContext);
     const [isUserVideoAdddialogOpen,setIsUserVideoAddDialogOpen]=useState(false);
     const navigateRouter = useNavigate();
 
@@ -49,7 +51,14 @@ const User = () => {
                                <div className='container'>
                                {Object.entries(userVideos).map(([key,{courseName,courseDuration,courseCatagory,embedLink}])=>({key,courseName,courseDuration,courseCatagory,embedLink})).map((obj)=>{
                                 return <div key={obj.key} className='tile'>
-                                    <img src={`https://img.youtube.com/vi/${obj.embedLink.slice(0,11)}/hqdefault.jpg`} onClick={()=>navigateRouter(`/course/${obj.embedLink}`)} />
+                                    <img src={`https://img.youtube.com/vi/${obj.embedLink.slice(0,11)}/hqdefault.jpg`} 
+                                    onClick={
+                                        ()=>{
+                                            handleSetCurrentCourseDuration(obj.courseDuration)
+                                            handleSetCurrentCourseName(obj.courseName)
+                                            navigateRouter(`/course/${obj.embedLink}`)
+                                            }
+                                        } />
                                     <span>{obj.courseName}</span>
                                     <span>Duration : {obj.courseDuration} <FaHourglassEnd/> </span>
                                     <span onClick={()=>handleUserVideoDelete(obj.key)}> <MdDelete/>delete video</span>

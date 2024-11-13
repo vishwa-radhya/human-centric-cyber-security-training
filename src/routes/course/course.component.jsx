@@ -12,28 +12,26 @@ import { AuthContext } from '../../contexts/auth-context.context';
 import { push,ref,remove } from 'firebase/database';
 import { firebaseRealtimeDb } from '../../utils/firebase';
 import { FavContext } from '../../contexts/fav-context.context';
-import { UserVideosContext } from '../../contexts/user-videos.context';
-import { iFrameData } from '../../data';
+import { HelperContext } from '../../contexts/helper-context.context';
 
 const Course =()=>{
     
-    const {courseId}=useParams();
+    const {cId}=useParams();
     const {userFavData}=useContext(FavContext);
     const navigateRouter = useNavigate();
+    const {currentCourseName,currentCourseDuration}=useContext(HelperContext);
     const [starCLicked,setStarClicked]=useState(false);
     const {user}=useContext(AuthContext);
-    const {newIframeData}=useContext(UserVideosContext);
     const [isNoUserPopoverShown,setIsNoUserPopoverShown]=useState(false);
-    const courseNameObject = iFrameData.concat(newIframeData).find(obj=>obj.videoSrc.includes(courseId));
     const starDivRef = useRef(null);
     
     useEffect(()=>{
-        if(Object.values(userFavData).includes(courseId.slice(0,11))){
+        if(Object.values(userFavData).find(obj=>obj.courseId === cId)){
             setStarClicked(true);
         }else{
             setStarClicked(false);
         }
-    },[userFavData,courseId])
+    },[userFavData,cId])
 
     const handleSetIsNoUserPopOverShown =(bool)=>{
         setIsNoUserPopoverShown(bool);
@@ -49,12 +47,16 @@ const Course =()=>{
         
         if(!starCLicked){
             try{
-                push(dataPushRef,courseId.slice(0,11))
+                push(dataPushRef,{
+                    courseName:currentCourseName,
+                    courseDuration:currentCourseDuration,
+                    courseId:cId,
+                })
             }catch(e){
                 console.error('error pushing data to user favorites',e);
             }
         }else{
-            const dataIdInDb =  Object.entries(userFavData).find(([,value])=>value === courseId.slice(0,11))?.[0];
+            const dataIdInDb =  Object.entries(userFavData).find(([,{courseId}])=>courseId === cId)?.[0];
             try{
                 const dataRemoveRef = ref(firebaseRealtimeDb,`${databaseReference}/${dataIdInDb}`)
                 remove(dataRemoveRef)
@@ -69,13 +71,13 @@ const Course =()=>{
             <div className='back-arrow' onClick={()=>navigateRouter(-1)}><FaArrowLeft  /> go back</div>
             <div className='yt-video'>
             <div className='iframe-container'>
-            <iframe src={`https://www.youtube.com/embed/${courseId}`} style={{width:'100%',height:'95%'}} frameBorder="0" 
+            <iframe src={`https://www.youtube.com/embed/${cId}`} style={{width:'100%',height:'95%'}} frameBorder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" 
     referrerPolicy="strict-origin-when-cross-origin" 
     allowFullScreen></iframe>
             </div>
             <div className='info'>
-            <p>{courseNameObject.videoName}</p>
+            <p>{currentCourseName}</p>
             <div className='star' ref={starDivRef} onClick={handleStarClick}>
                 {!starCLicked ? <FaRegStar/> : <FaStar/>}
             </div>
