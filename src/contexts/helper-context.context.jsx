@@ -7,6 +7,7 @@ export const HelperProvider =({children})=>{
 
     const [currentCourseName,setCurrentCourseName]=useState('');
     const [currentCourseDuration,setCurrentCourseDuration]=useState('');
+    const [userVideoCacheObject,setUserVideoCacheObject]=useState({});
 
     const handleSetCurrentCourseDuration = (val)=>{
         setCurrentCourseDuration(val);
@@ -16,8 +17,15 @@ export const HelperProvider =({children})=>{
         setCurrentCourseName(val);
     }
 
+    const handleSetUserVideoCacheObject=(key,val)=>{
+        setUserVideoCacheObject(prevCache=>({
+            ...prevCache,
+            [key]:val,
+        }))
+    }
+
     return(
-        <HelperContext.Provider value={{currentCourseName,currentCourseDuration,handleSetCurrentCourseDuration,handleSetCurrentCourseName}}>
+        <HelperContext.Provider value={{currentCourseName,currentCourseDuration,handleSetCurrentCourseDuration,handleSetCurrentCourseName,userVideoCacheObject,handleSetUserVideoCacheObject}}>
             {children}
         </HelperContext.Provider>
     )

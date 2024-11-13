@@ -1,0 +1,70 @@
+.community-videos-div{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h1{
+        text-align: center;
+    }
+    .refresh-div{
+        border: 1px solid;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 1.2rem;
+        width: fit-content;
+        align-self: center;
+        margin-right: 20px;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        user-select: none;
+        svg{
+            transition: .2s ease;
+        }
+        &:active svg{
+            transform: rotate(200deg);
+        }
+    }
+    .container{
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 30px;
+        .tile{
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            gap: 10px;
+            background: var(--cat-bg);
+            box-shadow: 1px 1px 1px var(--cat-bs1), -4px -4px 15px var(--cat-bs2);
+            span{
+                text-align: center;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .star-div{
+                position: absolute;
+                right: 10px;
+                display: flex;
+                bottom: 10px;
+            }
+            img{
+                width: 90%;
+            cursor: pointer;
+            }
+        }
+    }
+}
+@media screen and (max-width:500px){
+    .community-videos-div{
+        button{
+            font-size: 1rem;
+            scale: 0.9;
+        }
+    }
+}

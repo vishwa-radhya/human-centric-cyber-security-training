@@ -17,17 +17,8 @@ export const UserVideosProvider =({children})=>{
         const fetchUserVideosFromDb = async(user)=>{
             const userVideosInDbRef = ref(firebaseRealtimeDb,`userVideos/${user.uid}`);
             unsubscribeFromDb = onValue(userVideosInDbRef,(snapshot)=>{
-                // console.log('fetching user videos')
                 if(snapshot.exists()){
                     setUserVideos(snapshot.val())
-                    // setNewIframeData(Object.entries(snapshot.val()).map(([key,{courseName,courseDuration,courseCatagory,embedLink}])=>({
-                    //     id:key,
-                    //     videoSrc:`https://www.youtube.com/embed/${embedLink}`,
-                    //     videoLength:courseDuration,
-                    //     videoCategory:courseCatagory,
-                    //     videoName:courseName,
-                    //     videoCode:embedLink.slice(0,11)
-                    // })))
                 }else{
                     setUserVideos({});
                 }

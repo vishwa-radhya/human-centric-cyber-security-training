@@ -11,6 +11,7 @@ import { GrCatalogOption } from "react-icons/gr";
 import { FaRegStar } from "react-icons/fa";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { MdOutlineQuiz } from "react-icons/md";
+import { FaUserGroup } from "react-icons/fa6";
 
 const Navbar=()=>{
 
@@ -47,6 +48,7 @@ const Navbar=()=>{
                 <li onClick={()=>navigateRouter('catalog')} className="nav-li">Catalog</li>
                 <li onClick={()=>navigateRouter('favorites')} className="nav-li">Favorites</li>
                 <li onClick={()=>navigateRouter('quiz')} className="nav-li">Quiz</li>
+                <li onClick={()=>navigateRouter('community')} className="nav-li">Community</li>
                 <li className="user nav-li" onClick={()=>navigateRouter('user')}><FaCircleUser/></li>
                 <li className="options" onClick={()=>setIsDropdownOpen(true)} ref={ellipsisRef}><FaEllipsisVertical/></li>
                 <li className="theme" onClick={()=>setTheme(prev=>!prev)}>{theme ? <FaSun/> : <FaMoon/>} </li>
@@ -68,6 +70,10 @@ const Navbar=()=>{
                     navigateRouter('user')
                     setIsDropdownOpen(false)
                     }}><FaRegCircleUser/>User</span>
+                <span onClick={()=>{
+                    navigateRouter('community')
+                    setIsDropdownOpen(false)
+                    }}><FaUserGroup/>Community</span>
             </div>}
         </nav>
             <Outlet/>

@@ -15,6 +15,8 @@ import { useContext,useState,useEffect } from 'react'
 import { AuthContext } from './contexts/auth-context.context'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './utils/firebase'
+import Community from './routes/community/community.component'
+import CommunityVideos from './routes/community-videos/community-videos.component'
 
 function App() {
 
@@ -50,6 +52,8 @@ function App() {
           <Route path='user' element={<User/>} />
           <Route path='quiz' element={<Quiz/>} />
           <Route path='qz/:quizCatalog' element={<CatalogQuiz/>} />
+          <Route path='community' element={<Community/>} />
+          <Route path='com/:userUid' element={<CommunityVideos/>} />
         </Route>
       </Routes>
       {isLoading &&  <DataLoader />}

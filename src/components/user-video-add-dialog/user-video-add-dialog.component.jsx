@@ -17,7 +17,6 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
     const [courseCatagory,setCourseCatagory]=useState('');
     const {user} = useContext(AuthContext);
     const {communityUsers}=useContext(UserVideosContext);
-    // console.log(communityUsers)     
 
     const guideArray = ['Choose Your Youtube Video','Click on share','Click on embed','copy source(src) link from iframe code'];
     const courseCatalogs=['Cryptography','Cloud Security','Application Security','Information Security','Network Security','Social Engineering','Others'];
@@ -47,7 +46,6 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
                 try{
                     set(dbReferenceForNewPath,{
                         authorName:user.displayName,
-                        authorPhotoUrl:user.photoURL,
                     })
                 }catch(e){
                     console.error('error pushing user details to video added users',e)
@@ -101,6 +99,7 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
             </div>
             </div>
             <button className='c-btn' onClick={handleUserVideoSubmit}>Submit</button>
+            <span>Note : You can only embed youtube videos in browser...!!! </span>
         </div>
         </div>
     );
