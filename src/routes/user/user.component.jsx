@@ -16,6 +16,8 @@ import { useNavigate } from 'react-router-dom';
 import { ref,remove } from 'firebase/database';
 import { firebaseRealtimeDb } from '../../utils/firebase';
 import { HelperContext } from '../../contexts/helper-context.context';
+import { FaSignOutAlt } from "react-icons/fa";
+import { PiUserSwitchFill } from "react-icons/pi";
 
 const User = () => {
 
@@ -41,7 +43,10 @@ const User = () => {
                     <img src={user?.photoURL} alt='user' width={100} />
                     <p>{user?.displayName}</p>
                     <p>{user?.email}</p>
-                    <button className='c-btn' onClick={signOutUser}>Sign Out</button>
+                    <div className='btn-wrapper'>
+                    <button className='c-btn' onClick={signOutUser}> <FaSignOutAlt/> Sign Out</button>
+                    <button className='c-btn' onClick={signInUser}> <PiUserSwitchFill/> Switch Account</button>
+                    </div>
                     <div className='user-video-add-div'>
                             <p>Share Your YouTube Videos with the Community<FaUserGroup/></p>
                             <button className='c-btn' onClick={()=>setIsUserVideoAddDialogOpen(true)} > <FaPlus/> Add Now</button>

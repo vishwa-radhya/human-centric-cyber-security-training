@@ -9,9 +9,8 @@ export const UserVideosContext = createContext();
 export const UserVideosProvider =({children})=>{
 
     const [userVideos,setUserVideos]=useState({});
-    // const [newIframeData,setNewIframeData]=useState([]);
     const [communityUsers,setCommunityUsers]=useState({});
-
+    // console.log(communityUsers)
     useEffect(()=>{
         let unsubscribeFromDb = null;
         const fetchUserVideosFromDb = async(user)=>{

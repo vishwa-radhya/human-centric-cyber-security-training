@@ -25,7 +25,7 @@ const CommunityVideos = () => {
     
     useEffect(()=>{
         if(!Object.keys(userVideoCacheObject).includes(userUid)){
-            console.log('fetching user vid')
+            // console.log('fetching user vid')
             fetchDataFromDb()
         }else{
             setData(Object.entries(userVideoCacheObject[userUid]).map(([keyId,{courseName,courseDuration,courseCatagory,embedLink}])=>({keyId,courseName,courseDuration,courseCatagory,embedLink})));
@@ -34,7 +34,7 @@ const CommunityVideos = () => {
     
     const fetchDataFromDb = async()=>{
         setIsLoading(true);
-        console.log('refetching user vid')
+        // console.log('refetching user vid')
         try{
             const refPathInDb = ref(firebaseRealtimeDb,`userVideos/${userUid}`)
             const snapshot = await get(refPathInDb);

@@ -24,6 +24,14 @@
         p{
             text-align: center;
         }
+        .btn-wrapper{
+            display: flex;
+            gap: 20px;
+            button{
+                display: flex;
+                align-items: center;
+            }
+        }
         .user-video-add-div{
             display: flex;
             flex-direction: column;
@@ -106,6 +114,9 @@
         }
         .user-div-space{
             font-size: 1.3rem;
+            .btn-wrapper{
+                flex-direction: column;
+            }
         }
         .user-video-add-div{
             p{
