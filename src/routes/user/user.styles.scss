@@ -24,6 +24,17 @@
         p{
             text-align: center;
         }
+        .astro-user{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            svg{
+                width: 80%;
+                height: 80%;
+            }
+        }
         .btn-wrapper{
             display: flex;
             gap: 20px;
