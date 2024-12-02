@@ -22,6 +22,8 @@ const UserVideoAddDialog = ({setIsUserVideoAddDialogOpen}) => {
     const shareLinkHead = 'https://youtu.be/';
     const embedLinkHead='https://www.youtube.com/embed/';
 
+    const courseCatalogs=['Cryptography','Cloud Security','Application Security','Information Security','Network Security','Social Engineering','Others'];
+
     const handleUserVideoSubmit =async()=>{
         const trimmedCourseName = courseName.trim();
         const trimmedEmbedLink = embedLink.trim();
