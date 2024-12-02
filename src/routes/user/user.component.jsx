@@ -1,5 +1,5 @@
 import './user.styles.scss';
-import { useContext,  useState } from 'react';
+import { useContext,  useEffect,  useState } from 'react';
 import { AuthContext } from '../../contexts/auth-context.context';
 import { signInUser } from '../../utils/firebase';
 import { signOutUser } from '../../utils/firebase';
@@ -18,6 +18,7 @@ import { firebaseRealtimeDb } from '../../utils/firebase';
 import { HelperContext } from '../../contexts/helper-context.context';
 import { FaSignOutAlt } from "react-icons/fa";
 import { PiUserSwitchFill } from "react-icons/pi";
+import { FaUserAstronaut } from "react-icons/fa6";
 
 const User = () => {
 
@@ -26,6 +27,13 @@ const User = () => {
     const {handleSetCurrentCourseDuration,handleSetCurrentCourseName}=useContext(HelperContext);
     const [isUserVideoAdddialogOpen,setIsUserVideoAddDialogOpen]=useState(false);
     const navigateRouter = useNavigate();
+    const [isUserImgLoaded,setIsUserImgLoaded]=useState(false);
+
+    useEffect(()=>{
+        const img = new Image();
+        img.src = user?.photoURL;
+        img.onload=()=>setIsUserImgLoaded(true);
+    },[user?.photoURL])
 
     const handleUserVideoDelete=async(dataId)=>{
         try{
@@ -40,7 +48,7 @@ const User = () => {
         <div className="user-div animate__animated animate__fadeInDown">
             <h1>User Space</h1>
             {user ? <div className='user-div-space'>
-                    <img src={user?.photoURL} alt='user' width={100} />
+                    {isUserImgLoaded ? <img src={user?.photoURL} alt='user' width={100} /> : <div  className='astro-user' ><FaUserAstronaut/> </div>}
                     <p>{user?.displayName}</p>
                     <p>{user?.email}</p>
                     <div className='btn-wrapper'>
