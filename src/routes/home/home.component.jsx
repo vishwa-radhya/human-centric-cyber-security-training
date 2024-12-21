@@ -18,7 +18,7 @@ const Home=()=>{
                 <button onClick={()=>navigateRouter('/catalog')} className='c-btn'> <MdTravelExplore/> Explore Catalog</button>
             </div>
             <div>
-                <img src={homeImg} style={{width:'55%'}} />
+                <img src={homeImg} alt='cyber-bug' style={{width:'55%'}} />
             </div>
         </div>
     )

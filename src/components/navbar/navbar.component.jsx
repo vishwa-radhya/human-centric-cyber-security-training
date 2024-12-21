@@ -41,7 +41,7 @@ const Navbar=()=>{
         <Fragment>
         <nav className="navbar-container">
             <div onClick={()=>navigateRouter('/')}>
-                <img src={NavImage}  />
+                <img src={NavImage} alt="shld" />
                 <p>Web App</p>
             </div>
             <ul>
