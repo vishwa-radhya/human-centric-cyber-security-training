@@ -9,12 +9,17 @@
     z-index: 50;
     & > :nth-child(1){
         .icon{
-            font-size: 1rem;
+            font-size: 1.4rem;
+        }
+    }
+    & > :nth-child(2){
+        .icon{
+            font-size: 1.58rem;
         }
     }
     & > :nth-child(4){
         .icon{
-            font-size: 1rem;
+            font-size: 1.45rem;
         }
     }
     & > :nth-child(5){
@@ -26,7 +31,7 @@
     div{
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 4px;
         align-items: center;
         justify-content: center;
         min-width: 20%;
@@ -35,11 +40,10 @@
         cursor: pointer;
         border-radius: 2px;
         .icon{
-            font-size: 1.1rem;
-            
+            font-size: 1.6rem;
         }
         p{
-            font-size: 0.75rem;
+            font-size: 0.95rem;
         }
         &:hover{
             background-color: var(--dd-bgh);
