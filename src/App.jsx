@@ -52,7 +52,7 @@ function App() {
           <Route path='user' element={<User/>} />
           <Route path='quiz' element={<Quiz/>} />
           <Route path='qz/:quizCatalog' element={<CatalogQuiz/>} />
-          <Route path='community' element={<Community/>} />
+          <Route path='people' element={<Community/>} />
           <Route path='com/:userUid' element={<CommunityVideos/>} />
         </Route>
       </Routes>

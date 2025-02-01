@@ -18,43 +18,17 @@
         }
     }
 
-    .options-div{
-        position: absolute;
-        right: 10px;
-        border-radius: 5px;
-        top: 50px;
-        display: flex;
-        flex-direction: column;
-        background-color: var(--dd-bg);
-        color:var(--text-color);
-        padding: 10px 0;
-        z-index: 3;
-        box-shadow: var(--dd-bs);
-
-        span{
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 10px;
-            width: 100%;
-            font-size: 1.2rem;
-            &:hover{
-                background-color: var(--dd-bgh);
-            }
-        }
-    }
-
     ul{
         display: flex;
         gap: 20px;
         align-items: center;
-        .theme,.user,.options {
+        .theme,.user {
             display: flex;
             align-items: center;
             justify-content:center ;
         }
-        .options{
-            display: none;
+        .theme{
+            font-size: 1.1rem;
         }
     }
 
@@ -95,9 +69,6 @@
         ul{
             .nav-li{
                 display: none;
-            }
-            .options{
-                display: flex;
             }
         }
     }

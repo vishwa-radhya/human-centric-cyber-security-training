@@ -1,0 +1,53 @@
+.bottom-nav-div{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--dd-bg);
+    gap: 1px;
+    display: none;
+    z-index: 50;
+    & > :nth-child(1){
+        .icon{
+            font-size: 1rem;
+        }
+    }
+    & > :nth-child(4){
+        .icon{
+            font-size: 1rem;
+        }
+    }
+    & > :nth-child(5){
+        .icon{
+            font-weight: bolder;
+        }
+    }
+
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: center;
+        justify-content: center;
+        min-width: 20%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        cursor: pointer;
+        border-radius: 2px;
+        .icon{
+            font-size: 1.1rem;
+            
+        }
+        p{
+            font-size: 0.75rem;
+        }
+        &:hover{
+            background-color: var(--dd-bgh);
+        }
+    }
+}
+@media screen and (max-width:600px){
+    .bottom-nav-div{
+    display: flex;
+    }
+}
