@@ -19,6 +19,7 @@ import { HelperContext } from '../../contexts/helper-context.context';
 import { FaSignOutAlt } from "react-icons/fa";
 import { PiUserSwitchFill } from "react-icons/pi";
 import { FaUserAstronaut } from "react-icons/fa6";
+import SpacePadder from '../../components/space-padder/space-padder.component';
 
 const User = () => {
 
@@ -84,6 +85,7 @@ const User = () => {
                         <SvgLoader imgSrc={AuthImage} imgWidth={200} />
                         <button className='c-btn' onClick={signInUser}> <FaGoogle/>signIn</button>
             </div>}
+            <SpacePadder/>
         </div>
      );
 }

@@ -7,6 +7,7 @@ import Img5 from '../../assets/network sec (1).jpg'
 import Img6 from '../../assets/social-eng (1) (1).jpg'
 import SvgLoader from '../../components/svg-loader/svg-loader.component';
 import { useNavigate } from 'react-router-dom';
+import SpacePadder from '../../components/space-padder/space-padder.component';
 
 const Quiz = () => {
     
@@ -25,6 +26,7 @@ const Quiz = () => {
                     </div>
                 })}
             </div>
+            <SpacePadder/>
         </div>
      );
 }

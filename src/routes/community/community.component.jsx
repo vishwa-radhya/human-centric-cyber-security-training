@@ -4,6 +4,7 @@ import { UserVideosContext } from '../../contexts/user-videos.context';
 import NoCommunityUsersImg from '../../assets/void.svg';
 import Avatar from 'boring-avatars';
 import { useNavigate } from 'react-router-dom';
+import SpacePadder from '../../components/space-padder/space-padder.component';
 
 const Community = () => {
 
@@ -24,6 +25,7 @@ const Community = () => {
                     </div>
                 })}
                 </div>}
+                <SpacePadder/>
         </div>
      );
 }

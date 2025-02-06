@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaHourglassEnd,FaRegStar,FaStar } from 'react-icons/fa6';
 import { AuthContext } from '../../contexts/auth-context.context';
 import { HelperContext } from '../../contexts/helper-context.context';
+import SpacePadder from '../../components/space-padder/space-padder.component';
 
 const Favorites=()=>{
 
@@ -38,6 +39,7 @@ const Favorites=()=>{
                 })}
             </div>
             </div>}
+            <SpacePadder/>
         </div>
     )
 }

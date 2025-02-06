@@ -12,7 +12,7 @@ import { FaStar } from 'react-icons/fa6';
 import { FaRegStar } from 'react-icons/fa6';
 import { LuRefreshCw } from "react-icons/lu";
 import { useNavigate } from 'react-router-dom';
-
+import SpacePadder from '../../components/space-padder/space-padder.component';
 
 const CommunityVideos = () => {
 
@@ -74,6 +74,7 @@ const CommunityVideos = () => {
                 })}
             </div>
             {isLoading && <DataLoader/>}
+            <SpacePadder/>
         </div>
      );
 }
