@@ -29,7 +29,7 @@ const Navbar=()=>{
                 <li onClick={()=>navigateRouter('catalog')} className="nav-li">Catalog</li>
                 <li onClick={()=>navigateRouter('favorites')} className="nav-li">Favorites</li>
                 <li onClick={()=>navigateRouter('quiz')} className="nav-li">Quiz</li>
-                <li onClick={()=>navigateRouter('community')} className="nav-li">Community</li>
+                <li onClick={()=>navigateRouter('people')} className="nav-li">Community</li>
                 <li className="user nav-li" onClick={()=>navigateRouter('user')}><FaCircleUser/></li>
                 <li className="theme" onClick={()=>setTheme(prev=>!prev)}>{theme ? <FaSun/> : <FaMoon/>} </li>
             </ul>
