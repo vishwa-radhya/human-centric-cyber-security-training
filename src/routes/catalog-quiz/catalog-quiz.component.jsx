@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { catalogQuizData } from '../../quiz';
 import { useState } from 'react';
 import RadioButton from '../../components/radio-button/radio-button.component';
+import SpacePadder from '../../components/space-padder/space-padder.component';
 
 const CatalogQuiz = () => {
     const {quizCatalog} = useParams();
@@ -60,6 +61,7 @@ const CatalogQuiz = () => {
             <p>Your Score : {score}</p>
             <button className='c-btn' onClick={handleSetScore}>SUBMIT</button>
             <button className='c-btn' onClick={handleRetakeQuiz}>Retake quiz</button>
+            <SpacePadder/>
         </div>
      );
 }

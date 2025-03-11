@@ -3,6 +3,7 @@ import './navbar.styles.scss';
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavImage from '../../assets/shield-antivirus-svgrepo-com.svg';
+// import NavImage from '../../../favicons/favicon-32x32.png';
 import { FaSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa6";
 import { FaCircleUser } from "react-icons/fa6";

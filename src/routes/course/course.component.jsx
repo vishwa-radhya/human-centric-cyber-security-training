@@ -71,7 +71,7 @@ const Course =()=>{
             <div className='back-arrow' onClick={()=>navigateRouter(-1)}><FaArrowLeft  /> go back</div>
             <div className='yt-video'>
             <div className='iframe-container'>
-            <iframe src={`https://www.youtube.com/embed/${cId}`} style={{width:'100%',height:'95%'}} frameBorder="0" 
+            <iframe src={`https://www.youtube.com/embed/${cId}`} style={{width:'100%',height:'95%'}}  frameBorder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" 
     referrerPolicy="strict-origin-when-cross-origin" 
     allowFullScreen></iframe>

@@ -17,6 +17,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './utils/firebase'
 import Community from './routes/community/community.component'
 import CommunityVideos from './routes/community-videos/community-videos.component'
+import 'animate.css'
 
 function App() {
 
