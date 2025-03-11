@@ -2,8 +2,7 @@ import { Outlet } from "react-router-dom";
 import './navbar.styles.scss';
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NavImage from '../../assets/shield-antivirus-svgrepo-com.svg';
-// import NavImage from '../../../favicons/favicon-32x32.png';
+import NavImage1 from '../../assets/gene-sequence-svgrepo-com.svg';
 import { FaSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa6";
 import { FaCircleUser } from "react-icons/fa6";
@@ -22,8 +21,8 @@ const Navbar=()=>{
     return(
         <Fragment>
         <nav className="navbar-container">
-            <div onClick={()=>navigateRouter('/')}>
-                <img src={NavImage}  />
+            <div onClick={()=>navigateRouter('/')} className="home">
+                <img src={NavImage1} />
                 <p>Web App</p>
             </div>
             <ul>
