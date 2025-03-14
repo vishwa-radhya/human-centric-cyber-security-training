@@ -41,6 +41,7 @@
             gap: 10px;
             background: var(--cat-bg);
             box-shadow: 1px 1px 1px var(--cat-bs1), -4px -4px 15px var(--cat-bs2);
+            max-width: 450px;
             span{
                 text-align: center;
                 display: flex;

@@ -15,7 +15,7 @@
         .cu{
             padding: 10px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             .tile{
                 display: flex;
@@ -24,6 +24,7 @@
                 gap: 20px;
                 padding: 10px;
                 border-radius: 7px;
+                max-width: 450px;
                 .img-div{
                     width: 50%;
                 }

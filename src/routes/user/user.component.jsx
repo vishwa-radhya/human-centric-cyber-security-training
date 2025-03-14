@@ -75,7 +75,7 @@ const User = () => {
                                         } />
                                     <span>{obj.courseName}</span>
                                     <span>Duration : {obj.courseDuration} <FaHourglassEnd/> </span>
-                                    <span onClick={()=>handleUserVideoDelete(obj.key)}> <MdDelete/>delete video</span>
+                                    <span onClick={()=>handleUserVideoDelete(obj.key)}> <MdDelete/>delete</span>
                                 </div>
                                })}
                                </div> 
