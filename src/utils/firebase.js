@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth,GoogleAuthProvider,signInWithPopup,signOut } from "firebase/auth";
+import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,setPersistence,browserLocalPersistence } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 
@@ -36,3 +36,14 @@ export const signOutUser=async()=>{
         console.error('error signing out user',e);
     }
 }
+
+const initializeAuth =async()=>{
+  if(auth._isPersistenceConfigured) return;
+  try{
+    await setPersistence(auth,browserLocalPersistence);
+    auth._isPersistenceConfigured=true;
+  }catch(e){
+    console.error('error setting persistence:',e)
+  }
+}
+initializeAuth();
