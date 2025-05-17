@@ -1,5 +1,6 @@
 import './App.scss'
 import { Route, Routes } from 'react-router-dom'
+import { getDatabase,goOffline,goOnline } from 'firebase/database'
 import Navbar from './components/navbar/navbar.component'
 import Home from './routes/home/home.component'
 import Catalog from './routes/catalog/catalog.component'
@@ -23,6 +24,7 @@ function App() {
 
   const {handleSetUser} = useContext(AuthContext);
   const [isLoading,setIsLoading]=useState(false);
+  const db = getDatabase();
   
   useEffect(() => {
     const checkAuthState = async () => {

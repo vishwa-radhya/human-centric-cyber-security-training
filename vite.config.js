@@ -21,6 +21,21 @@ export default defineConfig({
       ],
       workbox:{
         navigateFallback:'/offline.html',
+        runtimeCaching:[
+          {
+            urlPattern:({url})=>
+              !url.origin.includes('firebase') && 
+            /\.(js|css|png|jpg|jpeg|svg|webp|woff2|ttf|gif)$/i.test(url.pathname),
+            handler:'StaleWhileRevalidate',
+            options:{
+              cacheName:'dynamic-assets',
+              expiration:{
+                maxEntries:100,
+                maxAgeSeconds:60*60*24*7
+              }
+            }
+          }
+        ]
       },
       manifest:{
         name:'CS Training',
